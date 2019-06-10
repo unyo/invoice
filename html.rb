@@ -15,7 +15,7 @@ get "/" do
   author = "--author \"Cody\"" unless ARGV[1]=='all'
   #projects = ["folio", "shorex", "trident", "admin", "vnext", "ocean-compass"]
   #projects = ["ocean", "trident", "web2", "web"]
-  projects = ["kbase"]
+  projects = ["kbase", "model_planning", "courseware", "globalgood_ef", 'mtc_prototype', 'gender_equality', 'bettergivingstudio', 'if']
   admin_lines = []
   root_path = File.expand_path(Dir.home)
   @days = []
@@ -120,7 +120,7 @@ __END__
       </td>
 
       <td style="border-left:solid #efefef 1px;border-right:solid #efefef 1px;border-bottom:solid #efefef 1px;border-top:solid #efefef 1px;vertical-align:top;background-color:#e4e4e6;padding:7px 7px 7px 7px">
-        <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;margin-left: 0.75pt;text-align: right;"><span style="font-size: 13.3333px; font-family: Arial; color: rgb(126, 128, 118); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">2 weeks</span></p>
+        <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;margin-left: 0.75pt;text-align: right;"><span style="font-size: 13.3333px; font-family: Arial; color: rgb(126, 128, 118); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;"><%= @days.length * 8 %> hours</span></p>
       </td>
     </tr>
 
@@ -134,7 +134,7 @@ __END__
       </td>
 
       <td style="border-left:solid #efefef 1px;border-right:solid #efefef 1px;border-bottom:solid #efefef 1px;border-top:solid #efefef 1px;vertical-align:top;background-color:#e4e4e6;padding:7px 7px 7px 7px">
-        <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;margin-left: 0.75pt;text-align: right;"><span style="font-size: 13.3333px; font-family: Arial; color: rgb(126, 128, 118); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">$5,833.33/mo</span></p>
+        <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;margin-left: 0.75pt;text-align: right;"><span style="font-size: 13.3333px; font-family: Arial; color: rgb(126, 128, 118); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">$80/hr</span></p>
       </td>
     </tr>
 
@@ -148,7 +148,7 @@ __END__
       </td>
 
       <td style="border-left:solid #efefef 1px;border-right:solid #efefef 1px;border-bottom:solid #efefef 1px;border-top:solid #efefef 1px;vertical-align:top;background-color:#e4e4e6;padding:7px 7px 7px 7px">
-        <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;margin-left: 0.75pt;text-align: right;"><span style="font-size: 13.3333px; font-family: Arial; color: rgb(126, 128, 118); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">$2,916.66</span></p>
+        <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;margin-left: 0.75pt;text-align: right;"><span style="font-size: 13.3333px; font-family: Arial; color: rgb(126, 128, 118); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">$<%= (@days.length * 8 * 80).to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse %></span></p>
       </td>
     </tr>
   </tbody>
